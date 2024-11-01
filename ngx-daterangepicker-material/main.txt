@@ -1,0 +1,5 @@
+SET DateRange TO 7
+WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://fetrarij.github.io/ngx-daterangepicker-material/simple''' WindowState: WebAutomation.BrowserWindowState.Maximized ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 TargetDesktop: $'''{\"DisplayName\":\"Local computer\",\"Route\":{\"ServerType\":\"Local\",\"ServerAddress\":\"\"}}''' BrowserInstance=> Browser
+CALL '1. Setup dates'
+CALL '2. Prepare calendars'
+CALL '3. Select dates'
