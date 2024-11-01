@@ -1,3 +1,4 @@
+
 FUNCTION '3. Select dates' GLOBAL
     WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Chrome']['StartDate'] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
     WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Chrome']['EndDate'] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
@@ -5,7 +6,7 @@ END FUNCTION
 
 # [ControlRepository][PowerAutomateDesktop]
 
-
+{
   "ControlRepositorySymbols": [
     {
       "IgnoreImagesOnSerialization": false,
