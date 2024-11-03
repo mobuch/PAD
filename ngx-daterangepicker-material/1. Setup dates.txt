@@ -1,22 +1,20 @@
-FUNCTION '1. Setup dates' GLOBAL
-    Variables.CreateNewDatatable InputTable: { ^['Month no', 'Month name'], [1, $'''Jan'''], [2, $'''Feb'''], [3, $'''Mar'''], [4, $'''Apr'''], [5, $'''May'''], [6, $'''Jun'''], [7, $'''Jul'''], [8, $'''Aug'''], [9, $'''Sep'''], [10, $'''Oct'''], [11, $'''Nov'''], [12, $'''Dec'''] } DataTable=> DataTable
-    **REGION Misc date setup
-    **REGION Current date
-    DateTime.GetCurrentDateTime.Local DateTimeFormat: DateTime.DateTimeFormat.DateAndTime CurrentDateTime=> CurrentDateTime
-    Text.ConvertDateTimeToText.FromCustomDateTime DateTime: CurrentDateTime CustomFormat: $'''MM''' Result=> CurrentMonth
-    SET CurrentMonthName TO DataTable[CurrentMonth - 1][1]
-    **ENDREGION
-    **REGION Start date
-    DateTime.Add DateTime: CurrentDateTime TimeToAdd: $'''-%DateRange%''' TimeUnit: DateTime.TimeUnit.Days ResultedDate=> StartDate
-    Text.ConvertDateTimeToText.FromCustomDateTime DateTime: StartDate CustomFormat: $'''MM''' Result=> StartMonth
-    Text.ToNumber Text: StartDate.Day Number=> StartDay
-    SET StartMonthName TO DataTable[StartMonth - 1][1]
-    **ENDREGION
-    **REGION End date
-    DateTime.Add DateTime: CurrentDateTime TimeToAdd: -1 TimeUnit: DateTime.TimeUnit.Days ResultedDate=> EndDate
-    Text.ConvertDateTimeToText.FromCustomDateTime DateTime: EndDate CustomFormat: $'''MM''' Result=> EndMonth
-    SET EndMonthName TO DataTable[EndMonth - 1][1]
-    Text.ToNumber Text: EndDate.Day Number=> EndDay
-    **ENDREGION
-    **ENDREGION
-END FUNCTION
+Variables.CreateNewDatatable InputTable: { ^['Month no', 'Month name'], [1, $'''Jan'''], [2, $'''Feb'''], [3, $'''Mar'''], [4, $'''Apr'''], [5, $'''May'''], [6, $'''Jun'''], [7, $'''Jul'''], [8, $'''Aug'''], [9, $'''Sep'''], [10, $'''Oct'''], [11, $'''Nov'''], [12, $'''Dec'''] } DataTable=> DataTable
+**REGION Misc date setup
+**REGION Current date
+DateTime.GetCurrentDateTime.Local DateTimeFormat: DateTime.DateTimeFormat.DateAndTime CurrentDateTime=> CurrentDateTime
+Text.ConvertDateTimeToText.FromCustomDateTime DateTime: CurrentDateTime CustomFormat: $'''MM''' Result=> CurrentMonth
+SET CurrentMonthName TO DataTable[CurrentMonth - 1][1]
+**ENDREGION
+**REGION Start date
+DateTime.Add DateTime: CurrentDateTime TimeToAdd: $'''-%DateRange%''' TimeUnit: DateTime.TimeUnit.Days ResultedDate=> StartDate
+Text.ConvertDateTimeToText.FromCustomDateTime DateTime: StartDate CustomFormat: $'''MM''' Result=> StartMonth
+Text.ToNumber Text: StartDate.Day Number=> StartDay
+SET StartMonthName TO DataTable[StartMonth - 1][1]
+**ENDREGION
+**REGION End date
+DateTime.Add DateTime: CurrentDateTime TimeToAdd: -1 TimeUnit: DateTime.TimeUnit.Days ResultedDate=> EndDate
+Text.ConvertDateTimeToText.FromCustomDateTime DateTime: EndDate CustomFormat: $'''MM''' Result=> EndMonth
+SET EndMonthName TO DataTable[EndMonth - 1][1]
+Text.ToNumber Text: EndDate.Day Number=> EndDay
+**ENDREGION
+**ENDREGION
