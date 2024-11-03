@@ -1,23 +1,26 @@
-**REGION Left calendar - start date
-LOOP LoopIndex FROM 1 TO CurrentMonth - 1 STEP 1
-    IF (WebAutomation.IfWebPageContains.WebPageDoesNotContainElement BrowserInstance: Browser Control: appmask['Chrome']['StartMonth']) THEN
-        WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Chrome']['Prev left'] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
-    ELSE
-        EXIT LOOP
-    END
-END
-**ENDREGION
-**REGION Right calendar - end date
-IF StartMonth <> EndMonth THEN
+
+FUNCTION '2. Prepare calendars' GLOBAL
+    **REGION Left calendar - start date
     LOOP LoopIndex FROM 1 TO CurrentMonth - 1 STEP 1
-        IF (WebAutomation.IfWebPageContains.WebPageDoesNotContainElement BrowserInstance: Browser Control: appmask['Chrome']['EndMonth']) THEN
-            WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Chrome']['Prev right'] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
+        IF (WebAutomation.IfWebPageContains.WebPageDoesNotContainElement BrowserInstance: Browser Control: appmask['Chrome']['StartMonth']) THEN
+            WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Chrome']['Prev left'] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
         ELSE
             EXIT LOOP
         END
     END
-END
-**ENDREGION
+    **ENDREGION
+    **REGION Right calendar - end date
+    IF StartMonth <> EndMonth THEN
+        LOOP LoopIndex FROM 1 TO CurrentMonth - 1 STEP 1
+            IF (WebAutomation.IfWebPageContains.WebPageDoesNotContainElement BrowserInstance: Browser Control: appmask['Chrome']['EndMonth']) THEN
+                WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Chrome']['Prev right'] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
+            ELSE
+                EXIT LOOP
+            END
+        END
+    END
+    **ENDREGION
+END FUNCTION
 
 # [ControlRepository][PowerAutomateDesktop]
 
